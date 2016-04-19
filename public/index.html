@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
-
 </head>
 <body>
     <div class="container" ng-controller="AppCtrl">
@@ -22,15 +21,19 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="text" class="form-control" ng-model="contact.name" required></td>
-                    <td><input type="text" class="form-control" ng-model="contact.email" required></td>
-                    <td><input type="text" class="form-control" ng-model="contact.number" required></td>
-                    <td><button class="btn btn-primary" ng-click="addContact()">添 加</button></td>
+                    <td><input type="text" class="form-control" ng-model="contact.name" placeholder="Name" required></td>
+                    <td><input type="mail" class="form-control" ng-model="contact.email" placeholder="mail@example.com" required></td>
+                    <td><input type="text" class="form-control" ng-model="contact.number" placeholder="(+86) 13456789100" required></td>
+                    <td><button class="btn btn-primary" ng-click="addContact()">添加</button></td>
+                    <td><button class="btn btn-info" ng-click="update()">更新</button></td>
+                    <td><button class="btn btn-info" ng-click="deselect()">清空</button></td>
                 </tr>
                 <tr ng-repeat = "contact in contactlist">
-                    <td>{{contact.name}}</td>
-                    <td>{{contact.email}}</td>
-                    <td>{{contact.number}}</td>
+                    <td ng-cloak>{{contact.name}}</td>
+                    <td ng-cloak>{{contact.email}}</td>
+                    <td ng-cloak>{{contact.number}}</td>
+                    <td><button class="btn btn-danger" ng-click="remove(contact._id)" ng-cloak>删 除</button></td>
+                    <td><button class="btn btn-warning" ng-click="edit(contact._id)" ng-cloak>编 辑</button></td>
                 </tr>
             </tbody>
         </table>
