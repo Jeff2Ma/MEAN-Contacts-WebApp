@@ -9,33 +9,11 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
 app.get('/contactlist', function (req, res) {
-    console.log("I received a GET request");
-
+    // console.log("I received a GET request");
     db.contactlist.find(function (err, docs) {
         //console.log(docs);
         res.json(docs);
     });
-
-    // person1 = {
-    //     name: 'Tim',
-    //     email: '111@mamsd.com',
-    //     number: '(111) 111-11111'
-    // };
-    //
-    // person2 = {
-    //     name: 'jeff',
-    //     email: '22@dfasdf.com',
-    //     number: '(222)223-22222'
-    // };
-    //
-    // person3 = {
-    //     name: 'john',
-    //     email: '333@33.com',
-    //     number: '(333) 33333333'
-    // };
-    //
-    // var contactlist = [person1, person2, person3];
-    // res.json(contactlist);
 });
 
 
@@ -48,10 +26,11 @@ app.post('/contactlist', function (req, res) {
 
 app.delete('/contactlist/:id', function (req, res) {
     // console.log(id);
+    var id = req.params.id;
     db.contactlist.remove({_id: mongojs.ObjectID(id)}, function (err, doc){
         res.json(doc);
     });
-    var id = req.params.id;
+
 });
 
 app.get('/contactlist/:id', function (req, res) {
@@ -73,4 +52,4 @@ app.put('/contactlist/:id', function (req, res) {
 });
 
 app.listen(3000);
-console.log("running!");
+console.log("running! see http://localhost:3000/");

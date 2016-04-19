@@ -8,7 +8,9 @@ Just for practices, have fun :-)
 
 Before starting, make sure that your enviroment has installed Node.js and MongoDB.
 
-1. Clone this rep.
+1. Clone this rep. 
+
+		git clone https://github.com/Jeff2Ma/MEAN-Contacts-WebApp
 
 2. `cd` to folder `MEAN-Contacts-WebApp`.
 
